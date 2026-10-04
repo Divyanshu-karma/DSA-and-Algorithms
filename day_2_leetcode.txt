@@ -5,3 +5,5 @@ https://leetcode.com/problems/number-of-subsequences-that-satisfy-the-given-sum-
 
 gfg-
   https://www.geeksforgeeks.org/problems/power-set4302/1
+2) kadan's algo-
+https://www.geeksforgeeks.org/problems/max-circular-subarray-sum-1587115620/1
