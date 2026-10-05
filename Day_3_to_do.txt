@@ -1,0 +1,37 @@
+ques leetcode-
+https://leetcode.com/problems/find-unique-binary-string/
+
+wrong solution- 
+class Solution {
+    public String findDifferentBinaryString(String[] a) {
+        int n=a.length;
+        ArrayList<String> t=new ArrayList<>();
+        String ans="";
+        String Ans="";
+        ArrayList<String> all=gen(ans,n,t);
+        for(int i=0;i<all.size();i++){
+            boolean check=true;
+            for(int j=0;i<a.length;i++){
+                
+                if(all.get(i)==a[j]){
+                    check=false;
+                    break;
+                }
+            }
+            if(check){Ans=all.get(i);}
+        }
+        return Ans;
+    }
+    ArrayList<String>gen(String ans,int n,ArrayList<String>t){
+        if(n==ans.length()){
+            t.add(ans);
+            return t;
+        }
+        // ans+='0';
+        gen(ans+'0',n, t);
+        
+        // ans.substring();
+        gen(ans+'1',n, t);
+        return t;
+    }
+}
