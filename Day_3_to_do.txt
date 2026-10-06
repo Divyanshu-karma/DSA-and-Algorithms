@@ -35,3 +35,6 @@ class Solution {
         return t;
     }
 }
+
+////i  missed the correct syntax. wrong syntax- all.get(i)==a[j]
+correct syntax-  all.get(i).equals(a[j])
