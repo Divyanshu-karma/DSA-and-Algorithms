@@ -1,0 +1,135 @@
+https://www.geeksforgeeks.org/problems/longest-consecutive-sequence-in-binary-tree/1
+
+/* Structure of Binary Tree Node
+
+class Node {
+
+int data;
+
+Node left;
+
+Node right;
+
+
+
+Node(int data) {
+
+this.data = data;
+
+left = null;
+
+right = null;
+
+}
+
+}
+
+}*/
+
+class Solution {
+
+public int longestConsecutive(Node root) {
+
+// code here
+
+// return 0;
+
+Node f=root;
+
+Stack<Node> s=new Stack<>();
+
+s.push(f);
+
+int mx=Integer.MIN_VALUE;
+
+while(!s.isEmpty()){
+
+f=s.pop();
+
+mx=Math.max(mx,helper(f,1));
+
+if(f.right!=null) s.push(f.right);
+
+if(f.left!=null) s.push(f.left);
+
+}
+
+// helper(root,1);
+
+return mx;
+
+}
+
+
+int helper(Node t,int ans){
+
+Node rt=t;
+
+while(t.left!=null|| t.right!=null){
+
+if(t.left!=null &&t.data+1==t.left.data){
+
+ans++;
+
+t=t.left;
+
+}
+
+else if(t.right!=null &&t.data+1==t.right.data){
+
+ans++;
+
+t=t.right;
+
+}
+
+else{
+
+break;
+
+}
+
+}
+
+int tem=ans;
+
+ans=1;
+
+t=rt;
+
+while(t.left!=null|| t.right!=null){
+
+if(t.right!=null &&t.data+1==t.right.data){
+
+ans++;
+
+t=t.right;
+
+}
+
+else if(t.left!=null &&t.data+1==t.left.data){
+
+ans++;
+
+t=t.left;
+
+}
+
+else{
+
+break;
+
+}
+
+}
+
+ans=Math.max(ans,tem);
+
+if(ans==1) return -1;
+
+return ans;
+
+}
+
+
+} 
